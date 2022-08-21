@@ -1,14 +1,16 @@
 <template>
-    <ul>
-        <li><img :src="posterSrc" alt=""></li>
-        <li>{{ card.name || card.title}}</li>
-        <li>{{ card.original_name || card.original_title }}</li>
-        <li>
-            <img v-if="card.original_language === 'it' || 'en'" :src="flagImageSrc" :alt="card.original_language">
-            <span v-else>{{ card.original_language }}</span>
-        </li>
-        <li>{{ voteNumber }}</li>
-    </ul>
+    <div class="col">
+        <img :src="posterSrc" alt="" id="poster" class="img-fluid rounded h-100">
+        <ul class="d-none">
+            <li>{{ card.name || card.title}}</li>
+            <li>{{ card.original_name || card.original_title }}</li>
+            <li>
+                <img v-if="card.original_language === 'it' || 'en'" :src="flagImageSrc" :alt="card.original_language" class="w-25">
+                <span v-else>{{ card.original_language }}</span>
+            </li>
+            <li>{{ voteNumber }}</li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -31,6 +33,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

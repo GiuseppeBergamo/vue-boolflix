@@ -1,7 +1,9 @@
 <template>
-  <section id="movies">
-    <h2>Movies</h2>
-    <BaseCard v-for="movie in movies" :key="movie.id" :card="movie"></BaseCard>
+  <section id="movies" class="container">
+    <h2 class="h1 text-white fw-bold mb-4">Movies</h2>
+    <div class="row row-cols-4 g-3 text-center">
+        <BaseCard v-for="movie in movies" :key="movie.id" :card="movie"></BaseCard>
+    </div>
   </section>
 </template>
 
@@ -16,6 +18,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+#movies{
+    margin-top: 300px;
+    margin-bottom: 100px;
+}
 </style>

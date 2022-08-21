@@ -1,6 +1,11 @@
 <template>
-  <div id="app">
-    <SearchBar placeholder="Cerca..." buttonText="Cerca" @search="searchData"></SearchBar>
+  <div id="app" class="bg-grey">
+    <header class="d-flex justify-content-around align-items-center">
+      <div>
+        <h1 class="text-danger">BOOLFLIX</h1>
+      </div>
+      <SearchBar placeholder="Cerca..." buttonText="Cerca" @search="searchData"></SearchBar>
+    </header>
 
     <MovieSection :movies="movies"></MovieSection>
 
@@ -9,18 +14,18 @@
 </template>
 
 <script>
-import SearchBar from './components/SearchBar.vue';
 import axios from 'axios';
 import MovieSection from './components/MovieSection.vue';
-import SeriesSection from './components/SeriesSection.vue'
+import SeriesSection from './components/SeriesSection.vue';
+import SearchBar from './components/SearchBar.vue';
 
 
 export default {
   name: 'App',
   components: {
-    SearchBar,
     MovieSection,
-    SeriesSection
+    SeriesSection,
+    SearchBar 
   },
   data(){
     return{
@@ -64,5 +69,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/scss/style.scss';
+.bg-grey{
+  background-color: gray;
+}
+#app{
+  min-height: 100vh;
+}
+header {
+  height: 80px;
+  background-color: black;
+}
 
+ul{
+  list-style-type: none;
+}
 </style>

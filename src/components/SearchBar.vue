@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <input type="text" :placeholder="placeholder" v-model="text" @keyup.enter="emitSearch">
-    <button type="button" @click="emitSearch"> {{ buttonText }} </button>
+  <div class="d-flex align-items-center">
+    <input type="text" class="form-control" :placeholder="placeholder" v-model="text" @keyup.enter="emitSearch">
+    <button type="button" class="btn btn-danger" @click="emitSearch"> {{ buttonText }} </button>
   </div>
 </template>
 
