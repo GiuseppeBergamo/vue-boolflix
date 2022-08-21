@@ -1,21 +1,18 @@
 <template>
   <section id="movies">
     <h2>TV Series</h2>
-    <ul v-for="serie in series" :key="serie.id">
-        <li>{{ serie.name }}</li>
-        <li>{{ serie.original_name }}</li>
-        <li>{{ serie.original_language }}</li>
-        <li>{{ serie.vote_average }}</li>
-    </ul>
+    <BaseCard v-for="serie in series" :key="serie.id" :card="serie"></BaseCard>
   </section>
 </template>
 
 <script>
+import BaseCard from './BaseCard.vue';
 export default {
-    name: 'SeriesSection', 
+    name: "SeriesSection",
     props: {
         series: Array,
-    }
+    },
+    components: { BaseCard }
 }
 </script>
 
