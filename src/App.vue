@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchBar placeholder="Cerca..." buttonText="Cerca" @search="searchData"></SearchBar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchBar from './components/SearchBar.vue';
+import axios from 'axios';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SearchBar
+  },
+  data(){
+    return{
+      movies: [],
+      api: {
+        key: "8ad1775a19fb55f243417c7dc5cb78ff",
+        baseUri: "https://api.themoviedb.org/3",
+        language: "it-IT"
+      }
+    }
+  },
+  methods: {
+    searchData(query){
+      const {key, baseUri, language} = this.api;
+      const config = {
+        params: {
+          api_key: key, 
+          language: language,
+          query: query,
+        }
+      }
+      axios.get(`${baseUri}/search/movie`, config)
+      .then((res) => {
+        this.movies = res.data.results;
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
