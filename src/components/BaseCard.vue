@@ -1,6 +1,6 @@
 <template>
     <div class="col">
-        <img v-if="!(card.poster_path)" src="../assets/img/No-Image-Placeholder.svg.png" alt="no-image" class="img-fluid rounded h-100">
+        <img v-if="!card.poster_path" src="../assets/img/No-Image-Placeholder.svg.png" alt="no-image" class="img-fluid rounded h-100">
         <img v-else :src="posterSrc" alt="" id="poster" class="img-fluid rounded h-100">
 
         <ul class="d-none">
