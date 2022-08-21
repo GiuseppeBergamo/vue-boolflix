@@ -1,19 +1,23 @@
 <template>
   <div id="app">
     <SearchBar placeholder="Cerca..." buttonText="Cerca" @search="searchData"></SearchBar>
+
+    <MovieSection :movies="movies"></MovieSection>
   </div>
 </template>
 
 <script>
 import SearchBar from './components/SearchBar.vue';
 import axios from 'axios';
+import MovieSection from './components/MovieSection.vue';
 
 
 export default {
   name: 'App',
   components: {
-    SearchBar
-  },
+    SearchBar,
+    MovieSection
+},
   data(){
     return{
       movies: [],
