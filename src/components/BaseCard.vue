@@ -13,7 +13,7 @@
                         <img v-if="card.original_language === 'it' || 'en'" :src="flagImageSrc" :alt="card.original_language" class="w-25">
                         <span v-else>{{ card.original_language }}</span>
                     </li>
-                    <li class="mb-3"><span class="me-2"><b>Voto:</b></span>{{ voteNumber }}</li>
+                    <li class="mb-3"><span class="me-2"><b>Voto:</b></span><i v-for="index in 5" :key="index" :class="voteNumber >= index ? 'fa-solid' : 'fa-regular'" class="fa-regular fa-star"></i></li>
                 </ul>
             </div>
         </div>
@@ -65,5 +65,7 @@ export default {
     cursor: pointer;
 }
 
-
+.fa-solid.fa-star{
+    color: goldenrod;
+}
 </style>
